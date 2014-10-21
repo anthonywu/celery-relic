@@ -1,13 +1,10 @@
 from celery import Celery
+import os
 import random
 import time
 
-# using a homebrew-installed rabbitmq on OS X running on localhost:15672
-# used `rabbitmqadmin declare vhost name=celery-relic-test` to setup the vhost
-broker_url = "amqp://guest:guest@localhost:15672/celery-relic-test"
-
 # the app, named `celery` by default convention
-celery = Celery('tasks', backend='amqp', broker=broker_url)
+celery = Celery('tasks', backend='amqp', broker=os.environ['CELERY_RELIC_BROKER_URL'])
 
 @celery.task
 def add(x, y):
