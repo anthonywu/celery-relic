@@ -1,3 +1,5 @@
 celery==3.0.19
+flower==0.7.3
 newrelic==2.34.0.29
 ipython==2.3.0
+requests==2.4.3
