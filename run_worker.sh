@@ -1,8 +1,7 @@
 #!/bin/bash -e
 
 if [[ -z "$NEW_RELIC_LICENSE_KEY" ]]; then
-  echo "ERROR: env var NEW_RELIC_LICENSE_KEY not provided" >&2
-  exit 1
+  echo "WARN: env var NEW_RELIC_LICENSE_KEY not provided" >&2
 fi
 
 export NEW_RELIC_CONFIG_FILE=./newrelic.ini
