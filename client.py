@@ -1,6 +1,6 @@
-#!/usr/bin/env ipython -i
+#!/usr/bin/env ipython
 
-import celery
+print('Run this script with `-i` flag on for interactive use')
 
 from tasks import add, add_long_time
 
