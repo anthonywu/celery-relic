@@ -1,10 +1,11 @@
-from celery import Celery
+import celery
 import os
 import random
 import time
 import traceback
 
-my_app = Celery('tasks', backend='amqp', broker=os.environ['CELERY_RELIC_BROKER_URL'])
+print('Celery version: {}'.format(celery.__version__))
+my_app = celery.Celery('tasks', backend='amqp', broker=os.environ['CELERY_RELIC_BROKER_URL'])
 
 @my_app.task
 def add(x, y):
