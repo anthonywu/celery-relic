@@ -21,3 +21,12 @@ def add_long_time(x, y):
     print("Will wait {} seconds".format(wait))
     time.sleep(wait)
     return (x + y, wait, celery.__version__)
+
+@my_app.task
+def subtract_long_time(x, y):
+    """Take a long time to subtract two numbers in order to mock expensive transactions."""
+    # traceback.print_stack()
+    wait = random.randint(1, 3)
+    print("Will wait {} seconds".format(wait))
+    time.sleep(wait)
+    return (x - y, wait, celery.__version__)
