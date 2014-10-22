@@ -18,10 +18,3 @@ def add_long_time(x, y):
     print("Will wait {} seconds".format(wait))
     time.sleep(wait)
     return (x + y, wait)
-
-
-# === Main Bootstrap ===
-
-# if __name__ == '__main__':
-#     # celery.finalize()
-#     celery.worker_main()
