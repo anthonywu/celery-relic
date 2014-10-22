@@ -2,11 +2,16 @@
 
 print('Run this script with `-i` flag on for interactive use')
 
+import celery
+import time
 from tasks import add, add_long_time
 
-print(add.name)
-print(add_long_time.name)
+def test1():
+    r1 = add_long_time.delay(1, 1)
+    while not r1.ready():
+        time.sleep(1)
+        continue
+    add_result, fake_wait = r1.result
+    print('Result is: {} after waiting {} seconds'.format(add_result, fake_wait))
 
-def do():
-    r1 = add.delay(1, 2)
-    return r1.ready(), r1
+test1()
