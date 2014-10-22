@@ -8,6 +8,7 @@ fi
 export NEW_RELIC_CONFIG_FILE=./newrelic.ini
 
 if [[ -f $NEW_RELIC_CONFIG_FILE ]]; then
-#  newrelic-admin run-program celery -A tasks worker --loglevel=debug
-  celery worker -A tasks --concurrency=1 --loglevel=debug -n localhost
+  celery_worker_args="--app=tasks.my_app --concurrency=1 --loglevel=debug"
+  celery worker $celery_worker_args
+# newrelic-admin run-program celery -A tasks worker --loglevel=debug
 fi
