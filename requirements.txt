@@ -1,4 +1,4 @@
-celery[librabbitmq]==3.0.25  # latest available 3.0.x tag: https://github.com/celery/celery/tree/v3.0.25
+celery[librabbitmq]==3.1.16
 flower==0.7.3
 newrelic==2.34.0.29
 ipython==2.3.0
