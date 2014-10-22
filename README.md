@@ -4,6 +4,10 @@ This is a clean-room implementation of a "hello world" celery app that reports t
 
 ALPHA. Not guaranteed to work in your environment. YMMV.
 
+#### disclaimer ####
+- developed and tested only on OS X / VirtualBox hosted Vagrant machine (precise64 box)
+- stats actually showing up on NewRelic APM has yet to be verified
+
 ## Audience ##
 
 Python Celery users who would like to see their performance stats in NewRelic dashboard.
@@ -17,6 +21,7 @@ This tutorial is written for experienced software developers, with the assumptio
     - `sudo rabbitmqctl add_user guest:guest`
     - `sudo rabbitmqctl set_permissions -p demo guest ".*" ".*" ".*"`
     - `sudo rabbitmqctl stop && rabbitmq-server -detached # restarting the rabbitmq server`
+    - your setup steps may vary, proper rabbitmq admin is out of scope of this guide
 3. `source .env` to bootstrap the virtualenv and pip requirements (`autoenv` is recommended to consume this file automatically)
 4. `./run_worker.sh`, the script should start up, ending with the message `consumer: Ready to accept tasks!`
 5. `./client.py -i` to enter interactive mode as a caller of async tasks.
