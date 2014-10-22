@@ -3,7 +3,6 @@ import os
 import random
 import time
 
-# the app, named `celery` by default convention
 my_app = Celery('tasks', backend='amqp', broker=os.environ['CELERY_RELIC_BROKER_URL'])
 
 @my_app.task
