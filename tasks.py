@@ -20,4 +20,4 @@ def add_long_time(x, y):
     wait = random.randint(1, 5)
     print("Will wait {} seconds".format(wait))
     time.sleep(wait)
-    return (x + y, wait)
+    return (x + y, wait, celery.__version__)
