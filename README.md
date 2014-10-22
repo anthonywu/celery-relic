@@ -5,8 +5,8 @@ This is a clean-room implementation of a "hello world" celery app that reports t
 ALPHA. Not guaranteed to work in your environment. YMMV.
 
 #### disclaimer ####
-- developed and tested only on OS X / VirtualBox hosted Vagrant machine (precise64 box)
-- stats actually showing up on NewRelic APM has yet to be verified
+- developed and tested only on OS X / VirtualBox hosted Vagrant machine (`precise64` box)
+- NewRelic integration verified for `celery` version `3.0.25`, but not for `3.1.x` versions
 
 ## Audience ##
 
