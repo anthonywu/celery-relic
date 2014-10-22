@@ -6,6 +6,7 @@ if [[ -z "$NEW_RELIC_LICENSE_KEY" ]]; then
 fi
 
 export NEW_RELIC_CONFIG_FILE=./newrelic.ini
+export CELERY_TRACE_APP=1
 
 if [[ -f $NEW_RELIC_CONFIG_FILE ]]; then
   celery_worker_args="--app=tasks.my_app --concurrency=1 --loglevel=debug"
