@@ -5,7 +5,9 @@ import time
 import traceback
 
 print('Celery version: {}'.format(celery.__version__))
-my_app = celery.Celery('tasks', backend='amqp', broker=os.environ['CELERY_RELIC_BROKER_URL'])
+
+my_app = celery.Celery()
+my_app.config_from_object('celeryconfig')
 
 @my_app.task
 def add(x, y):
