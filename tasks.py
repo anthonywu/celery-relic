@@ -6,6 +6,7 @@ import traceback
 
 print('Celery version: {}'.format(celery.__version__))
 my_app = celery.Celery('tasks', backend='amqp', broker=os.environ['CELERY_RELIC_BROKER_URL'])
+#my_app = celery.Celery('tasks', broker='redis://localhost')
 
 @my_app.task
 def add(x, y):
