@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+source .env
+
 if [[ -z "$NEW_RELIC_LICENSE_KEY" ]]; then
   echo "WARN: env var NEW_RELIC_LICENSE_KEY not provided" >&2
 fi
