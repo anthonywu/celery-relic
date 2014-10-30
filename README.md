@@ -15,14 +15,17 @@ This tutorial is written for experienced software developers, with the assumptio
 
 ## How to use ##
 
-1. clone this repo
-2. on your dev machine or another machine resource, set up a development purpose `rabbitmq-server`, accepting default port, and (roughly) with these config steps:
+1. clone this repo.
+2. Install RabbitMQ server.
+    `sudo apt-get install rabbitmq-server`
+3. on your dev machine or another machine resource, set up a development purpose `rabbitmq-server`, accepting default port, and (roughly) with these config steps:
     - `sudo rabbitmqctl add_vhost demo`
-    - `sudo rabbitmqctl add_user guest:guest`
+    - `sudo rabbitmqctl add_user guest:guest` # This might not be necessary since apt-get install will setup ths user by default.
     - `sudo rabbitmqctl set_permissions -p demo guest ".*" ".*" ".*"`
-    - `sudo rabbitmqctl stop && rabbitmq-server -detached # restarting the rabbitmq server`
+    - `sudo rabbitmqctl stop` 
+    - `sudo rabbitmq-server` -detached # restarting the rabbitmq server`
     - your setup steps may vary, proper rabbitmq admin is out of scope of this guide
-3. `source .env` to bootstrap the virtualenv and pip requirements (`autoenv` is recommended to consume this file automatically)
-4. `./run_worker.sh`, the script should start up, ending with the message `consumer: Ready to accept tasks!`
-5. `./client.py -i` to enter interactive mode as a caller of async tasks.
-6. `export NEW_RELIC_LICENSE_KEY=<your account license key>` if you'd like to integrate with NewRelic APM
+4. `source .env` to bootstrap the virtualenv and pip requirements (`autoenv` is recommended to consume this file automatically)
+5. `export NEW_RELIC_LICENSE_KEY=<your account license key>` if you'd like to integrate with NewRelic APM
+6. `./run_worker.sh`, the script should start up, ending with the message `consumer: Ready to accept tasks!`
+7. `./client.py -i` to enter interactive mode as a caller of async tasks.
